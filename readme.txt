@@ -4,7 +4,7 @@ Prerequisites:
 - Unity Vuforia Engine
 - Visual Studio 8.10.22 (build 11)
 - ultrasound probe model
-- human torso model with 3D scanning file
+- human torso model 
 - markers for recoginizing the two objects: 
   - markers_1: two single markers;
   - multi: two cube targets;
