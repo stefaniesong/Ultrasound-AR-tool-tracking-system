@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.IO;
-// Generate a screenshot and save to disk with the name SomeLevel.png.
+// Save the image the camera captured.
 
 public class capture : MonoBehaviour
 {
