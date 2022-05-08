@@ -21,6 +21,8 @@ Process for building tracking project:
 Install Vuforia engine in a untiy project. Import the ultrasound probe
 model and human torso model as GameObjects. Add two markers and set the
 two objects as their child independently.
-Add C# scripts to game component and run the game.
+Add C# scripts to game component. Create empty object and add tracking.cs to it, then drag M1 and M2 to the inspector. 
+
+marker generator:https://www.brosvision.com/ar-marker-generator/
 
 
