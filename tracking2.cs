@@ -1,15 +1,15 @@
-using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine;
-//using System;
-
-
-
+using UnityEditor;
+using System.IO;
+using System;
+using System.Collections;
+using System.Globalization;
+using System.Collections.Generic;
 public class tracking2 : MonoBehaviour
 {
     //Define two markers
-    public GameObject M1;//probe
-    public GameObject M2;//torso
+    public GameObject M1;//torso
+    public GameObject M2;//probe
 
     //Define the translation and rotation matrixes of the two markers
     public Vector3 position1;
@@ -22,6 +22,7 @@ public class tracking2 : MonoBehaviour
     public Quaternion rela_r;
     public Pose_position pose_Position1;
 
+    public static int n = 0;
 
     //Define the camera parameters
 
@@ -33,15 +34,15 @@ public class tracking2 : MonoBehaviour
     void Start()
     {
         Debug.Log("Tracking starts!");
-        // camera = GetComponent<Camera>();
     }
 
-    //Transform the coordinates to get the relation of the two markers
 
-    // Update is called once per frame
+    //Transform the coordinates to get the relation of the two markers
     void Update()
     {
-        //Track the translation and rotation matrixes of the two markers
+
+        // Track the translation and rotation matrixes of the two markers
+        // Access to the 3D  world space position of the Transform: https://docs.unity3d.com/ScriptReference/Transform-position.html 
         position1 = M1.transform.position;
         rotation1 = M1.transform.rotation;
 
@@ -58,11 +59,19 @@ public class tracking2 : MonoBehaviour
         pose_Position1.orientation = rela_r;
 
         //Show the estimation matrix
-        Debug.Log("<color=#FFFF00>" + "Position 1 and Rotation 1 is:" + position1 + rotation1 + "!" + "</color>");
-        Debug.Log("<color=#00EEEE>" + "Position 2 and Rotation 2 is:" + position2 + rotation2 + "!" + "</color>");
-        Debug.Log("<color=#FF0066>" + "The relative pose and position is:" + rela_p + rela_r + "!" + "</color>");
+        //Debug.Log("<color=#FFFF00>" + "Position 1 and Rotation 1 is:" + position1 + rotation1 + "!" + "</color>");
+        //Debug.Log("<color=#00EEEE>" + "Position 2 and Rotation 2 is:" + position2 + rotation2 + "!" + "</color>");
+        //Debug.Log("<color=#FF0066>" + "The relative pose and position is:" + rela_p + rela_r + "!" + "</color>");
 
-        save.Save(pose_Position1);
+        if (Input.GetKeyDown("space"))
+        {
+            n++;
+            Debug.Log("space key was pressed.");
+            save.Save(pose_Position1);
+            Debug.Log("location" + n);
+            Debug.Log("Save the image.");
+        }
+        
     }
 
 }
