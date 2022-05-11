@@ -9,6 +9,8 @@ Prerequisites:
   - markers_1: two single markers;
   - multi: two cube targets;
   - coka: cylinder targets;
+  
+The realiztion of the functions:
 - tracking: 
   - use translation and rotation martrix (with quaternion):tracking.cs
   - apply Euclidien transformation matrices: tracking_2.cs
